@@ -3,3 +3,16 @@
 <% if @post.post_photo? %>
   <%= image_tag @post.post_photo.url, class: "post-image" %>
 <% end %>
+
+<div id="comments">
+  <% if @post.comments %>
+    <% @post.comments.order(created_at: :asc).each do |comment| %>
+    <p><strong><%= comment.user.email %></strong>: <%= comment.text %></p>
+    <% end %>
+  <% end %>
+</div>
+<h3>Add a Comment</h3>
+<%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
+  <%= form.text_area :text, placeholder: "Enter your comment..." %><br>
+  <%= form.submit "Submit Comment" %>
+<% end %>

@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
   has_many :posts
+  has_many :comments, dependent: :destroy
  
 
   def friends_with?(other_user)
@@ -20,12 +21,16 @@ class User < ApplicationRecord
   #   Friendship.create(friend: to_user)
   # end
   def posts_and_friends_posts
+    friends = friendships.map(&:friend) # Assuming friendships has been defined
+    puts "Friends IDs: #{friends.pluck(:id)}"
+
     Post.where(user_id: friends.pluck(:id).push(id) + [self.id])
   end
 
   def accept_friend_request(from_user)
     friendship = friendships.find_or_initialize_by(friend: from_user)
     friendship.update(accepted: true)
+    Friendship.create(user: from_user, friend: current_user, accepted: true).save!
   end
 
   def decline_friend_request(from_user)
