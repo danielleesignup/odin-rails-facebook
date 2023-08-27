@@ -1,0 +1,33 @@
+<!-- app/views/users/show.html.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Profile</title>
+  <!-- Add any necessary meta tags, CSS, or other stylesheets -->
+</head>
+<body>
+  <h1>User Profile</h1>
+  <% if current_user == @user %>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  <% end %>
+
+  <% if current_user.friends_with?(@user) %>
+    <%= link_to "Remove Friend", remove_friend_user_path(@user), method: :delete, class: "btn btn-danger" %>
+  <% else %>
+    <% if current_user.pending_friend_request?(@user) %>
+      <%= link_to "Cancel Request", cancel_friend_request_user_path(@user), method: :delete, class: "btn btn-secondary" %>
+    <% else %>
+      <% if current_user != @user %>
+        <% unless current_user.pending_friend_request?(@user) || current_user.friends_with?(@user) %>
+          <%= link_to "Add Friend", send_friend_request_user_path(@user, sender_id: current_user.id), method: :post, class: "btn btn-primary" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %> 
+
+  <p>Name: <%= @user.profile.name %></p>
+  <p>Email: <%= @user.email %></p>
+  <p>Bio: <%= @user.profile.bio%></p>
+  <!-- Display other user information as needed -->
+</body>
+</html>

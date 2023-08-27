@@ -1,0 +1,29 @@
+<nav class="navbar">
+  <ul class="navbar-links">
+    <li><%= link_to root_path do %>
+            <%=image_tag "home.svg", alt: "Home" %>
+        <% end %> 
+    </li>
+    <li>
+      <%= link_to notifications_path do %>
+        <%= image_tag "notification.svg", alt: "Notifications" %>
+      <% end %>
+    </li>
+
+    <li>
+      <%= link_to new_post_path do %>
+        <%= image_tag "new_post.svg", alt: "New Post" %>
+      <% end %>
+    </li>
+    
+
+    <% if user_signed_in? %>
+      <%= link_to profile_path(current_user) do %>
+        <%= image_tag "profile.svg", alt: "Profile" %>
+      <% end %>
+    <% else %>
+        <%= link_to "Login", new_user_session_path %>
+    <% end %>
+    </li>
+  </ul>
+</nav>

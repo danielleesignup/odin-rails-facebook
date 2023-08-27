@@ -1,0 +1,21 @@
+<!-- app/views/notifications/index.html.erb -->
+<div class="notification-display">
+
+<h1> My Notifications </h1>
+
+  <ul class= "notification-list">
+    <li>your progress is slow</li>
+    <li>do you think you could do bap-beol-yi???</li>
+  </ul>
+  <% @notifications.each do |notification| %>
+    <div class="notification <%= 'read' if notification.read %>">
+    <%= notification.content %>
+    <% if !notification.read %>
+      <% if notification.friend_request? %>
+        <%= link_to "Accept", accept_friend_request_notification_path(notification), method: :patch %>
+        <%= link_to "Decline", decline_friend_request_notification_path(notification), method: :delete %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+</div>

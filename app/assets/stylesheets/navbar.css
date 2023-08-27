@@ -1,0 +1,44 @@
+/* app/assets/stylesheets/navbar.css */
+.navbar {
+    grid-area: navbar;
+    position: fixed;
+    display: flex;
+    /* width: 100vw;
+    height: 10vh; */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; 
+    background-color: skyblue;
+    /* padding: 10px; */
+    /* margin-bottom: 1rem; */
+    justify-content: flex-end;
+    ;
+    /* Add more styles as needed */
+  }
+
+  .navbar nav {
+    width: 100vw;
+  }
+
+  .navbar-links {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-links li {
+    display: block;
+    margin-right: 20px;
+  }
+  
+  /* Add styles for your links, images, etc. here */
+  
+  .navbar img {
+    height: 40px; /* Adjust the height of the SVG image to fit inside the navbar */
+    width: auto; /* Let the width adjust proportionally based on the height */
+    margin: 10px; /* Adjust the margin to control the position of the SVG image within the navbar */
+  }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OdinFacebook</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'navbar', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'sidebar', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_importmap_tags %>
+    <%= javascript_include_tag 'stimulus' %>
+
+  </head>
+
+  <body>
+    <div class= "grid-container" >
+      <div class= "navbar" >
+        <%= render 'shared/navbar' %>
+      </div>
+      <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+       <% end %>
+      <div class = "sidebar">
+        <%= render 'shared/sidebar'%>
+      </div>
+      <div class="notification-window" hidden>
+        <ul class= "notification-list">dummy notifications
+          <li>your progress is slow</li>
+          <li>do you think you could do bap-beol-yi???</li>
+        </ul>
+          <%# @notifications.each do |notification| %>
+          <!-- Display your notification content here -->
+          <%#= notification %>
+        <%# end %>
+        </div>
+      <div class = "main">
+        <%= yield %>
+      </div>
+      </div>
+  </body>
+</html>

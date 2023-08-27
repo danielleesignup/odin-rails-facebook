@@ -1,0 +1,68 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/* app/assets/stylesheets/application.css */
+.grid-container {
+    display: grid;
+    /* Divide the columns and rows into 20 parts each */
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    height: 100vh;
+  }
+  
+  .navbar {
+    grid-area: 1/1/2/21;
+  }
+  
+  .sidebar {
+    grid-area: 3/1/21/2;
+    position: fixed;
+    top: 10vh;
+    left: 0;
+    bottom: 0;
+    width: 10vw; /* Adjust the width of the sidebar as needed */
+    background-color: lightgreen;
+  }
+  
+  .main {
+    grid-area: 2/2/21/21;
+    margin-top: 3vh;
+    margin-left: 10vw; 
+  }
+
+.notification-window {
+    position: fixed;
+    top: 50px; /* Adjust the top position to set the distance from the top */
+    right: 20px; /* Adjust the right position to set the distance from the right */
+    background-color: red;
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-width: 300px; /* Adjust the maximum width of the notification window */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 999; /* Set the z-index to be above other elements on the page */
+    display: none; /* Start with the window hidden */
+  }
+  
+  .notification.read {
+    color: gray;
+    /* Add other styles as needed */
+  }
+  
+  .post-image {
+    max-width: 30%; /* Set the maximum width to 100% of the container */
+    height: auto; /* Maintain the image's aspect ratio */
+  }
+  

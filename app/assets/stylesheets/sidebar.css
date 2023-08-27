@@ -1,0 +1,29 @@
+/* app/assets/stylesheets/sidebar.css */
+.sidebar {
+    grid-area: sidebar;
+    position: fixed;
+    /* top: 10vh; */
+    left: 0;
+    bottom: 0;
+    /* width: 10vw;  */
+    background-color: lightgreen; /* Add a background color to the sidebar */
+    /* Add more styles for the sidebar as needed */
+  }
+  
+  .user-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .user-list li {
+    padding: 10px;
+    /*border-bottom: 1px solid #ccc; /* Add a separator between user names */
+  }
+  
+  .user-list li:last-child {
+    border-bottom: none; /* Remove the separator for the last user name */
+  }
+  
+  /* Add more styles for the user list items as needed */
+  

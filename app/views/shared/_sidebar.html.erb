@@ -1,0 +1,8 @@
+<!-- app/views/shared/_sidebar.html.erb -->
+<div class="sidebar">
+  <ul class="user-list">
+    <% User.all.each do |user| %>
+      <li><%= link_to user.email, profile_path(user) %></li>
+    <% end %>
+  </ul>
+</div>

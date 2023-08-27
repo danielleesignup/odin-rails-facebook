@@ -1,0 +1,11 @@
+<h1>Homepage</h1>
+
+<% @posts.each do |post| %>
+  <div class="post">
+    <h3><%= link_to post.title, post_path(post) %></h3>
+    <p><%= post.text %></p>
+    <% if post.post_photo.present? %>
+      <%= image_tag post.post_photo.url, class: "post-image" %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,9 @@
+
+<h1> NEW POST </h1>
+<ul><%= form_for @post, html: { multipart: true } do |f| %>
+  <li>TITLE: <%= f.text_field :title %> </li>
+  <li>TEXT: <%= f.text_area :text %> </li>
+  <li>PHOTO: <%= f.file_field :post_photo %> </li>
+  <li><%= f.submit %></li>
+<% end %>
+</ul>

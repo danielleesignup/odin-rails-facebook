@@ -1,0 +1,5 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.text %></p>
+<% if @post.post_photo? %>
+  <%= image_tag @post.post_photo.url, class: "post-image" %>
+<% end %>
