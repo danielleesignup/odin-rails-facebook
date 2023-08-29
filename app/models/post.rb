@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  belongs_to :user
+  attr_accessor :likes_count
   has_many :comments
   
   mount_uploader :post_photo, PostPhotoUploader

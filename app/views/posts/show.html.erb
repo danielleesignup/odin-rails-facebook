@@ -4,6 +4,19 @@
   <%= image_tag @post.post_photo.url, class: "post-image" %>
 <% end %>
 
+
+
+<div class="heart-btn">
+  <div class="content">
+    <span class="heart"></span>
+    <span class="text">Like</span>
+    <span class="numb"></span>
+  </div>
+</div>
+
+
+
+
 <div id="comments">
   <% if @post.comments %>
     <% @post.comments.order(created_at: :asc).each do |comment| %>
@@ -16,3 +29,16 @@
   <%= form.text_area :text, placeholder: "Enter your comment..." %><br>
   <%= form.submit "Submit Comment" %>
 <% end %>
+
+
+<script>
+  $(document).ready(function(){
+    $('.content').click(function(){
+      $('.content').toggleClass("heart-active")
+      $('.text').toggleClass("heart-active")
+      $('.numb').toggleClass("heart-active")
+      $('.heart').toggleClass("heart-active")
+    });
+  });
+</script>
+<%# <%= javascript_include_tag "post_show" %>

@@ -4,12 +4,6 @@ class MainController < ApplicationController
     
     if @user
       
-      puts "########## @USER: #{@user.id} "
-      puts "######### @USER.POSTS: #{@user.posts.inspect} "
-      @user.posts.each do |post|
-        puts "Post ID: #{post.id}, Title: #{post.title}"
-      end
-      
       @posts = @user.posts_and_friends_posts
       @posts = @posts.order(created_at: :desc)
     else

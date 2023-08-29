@@ -23,7 +23,11 @@ Rails.application.routes.draw do
   end
 
 
-  resources :posts, only: [:new, :show, :create] do
+  resources :posts do
+    member do
+      post 'like'
+      post 'unlike'
+    end
     resources :comments, only: [:create]
   end
 
